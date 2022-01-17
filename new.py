@@ -101,8 +101,10 @@ class Target():
             self.y = screenH * -1
             self.hit = False
             self.falling = False
+            print("false")
         elif self.collision():
             self.hit = True
+            print("true")
 
 Target.gentarget()
 
