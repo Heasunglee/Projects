@@ -32,7 +32,7 @@ class Block():
 
 block = (Block(400,660,85,40,screen))
 
-fff
+
 
 #Lines seperating Block class movement
 class Line():
@@ -105,16 +105,17 @@ class Target():
         elif self.collision():
             self.hit = True
     
-    def gamefinish(self):
-        global gameover
-        if self.hit == True:
-            gameover = False
-            print("False")
-        else:
-            gameover = True
-            print("True")
+    # def gamefinish(self):
+    #     global gameover
+    #     if self.hit == True:
+    #         gameover = False
+    #         print("False")
+    #     else:
+    #         gameover = True
+    #         print("True")
 
 Target.gentarget()
+
 
 
 #Bottom outline squares for block
@@ -126,7 +127,7 @@ def drawsquare():
     pygame.draw.rect(screen,c,[191,y,block.width,block.height])
     pygame.draw.rect(screen,c,[284,y,block.width,block.height])
 
-vcvcvcvcvc
+
 
 #While Loop
 while True:
@@ -149,7 +150,12 @@ while True:
 
     #Calling Function
     for target in Target.targetarray:
-        target.gamefinish()
+        target.hit = gameover
+        if not target.hit:
+            gameover = True
+        else:
+            gameover = False
+
     
     if gameover == False:
         #Drawing/Screen Update
