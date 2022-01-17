@@ -143,13 +143,9 @@ while True:
 
     #Calling Function
     for target in Target.targetarray:
-        target.hit = gameover
         if not target.hit:
             gameover = True
-            print("True")
-        else:
-            gameover = False
-            print("False")
+            break
 
     if gameover == False:
         
