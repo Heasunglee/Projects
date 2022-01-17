@@ -78,8 +78,7 @@ class Target():
             Target.targetarray.append(Target(284,-85,85,40,screen,False))
 
     def draw(self):
-        if not(self.hit):
-            pygame.draw.rect(self.screen,(0,0,51),[self.x,self.y,self.width,self.height])
+        pygame.draw.rect(self.screen,(0,0,51),[self.x,self.y,self.width,self.height])
 
 
     def update(self):
@@ -104,15 +103,6 @@ class Target():
             self.falling = False
         elif self.collision():
             self.hit = True
-    
-    # def gamefinish(self):
-    #     global gameover
-    #     if self.hit == True:
-    #         gameover = False
-    #         print("False")
-    #     else:
-    #         gameover = True
-    #         print("True")
 
 Target.gentarget()
 
@@ -153,11 +143,14 @@ while True:
         target.hit = gameover
         if not target.hit:
             gameover = True
+            print("True")
         else:
             gameover = False
+            print("False")
 
     
     if gameover == False:
+        
         #Drawing/Screen Update
         screen.fill((102,0,51))
         drawsquare()
