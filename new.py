@@ -137,6 +137,9 @@ while True:
                 block.x = 191
             if event.key == pygame.K_j:
                 block.x = 284
+            elif gameover == True:
+                if event.key == pygame.K_SPACE:
+                    gameover = False
 
     #Calling Function
     for target in Target.targetarray:
@@ -148,7 +151,6 @@ while True:
             gameover = False
             print("False")
 
-    
     if gameover == False:
         
         #Drawing/Screen Update
@@ -185,14 +187,6 @@ while True:
         label1 = font1.render("Press Space To Restart", 1, (255,255,255))
         screen.blit(label, (35,50))
         screen.blit(label1, (30,500))
-
-        #Retry Button
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    gameover = False
 
     pygame.display.update()
     FramePerSec.tick(FPS)
