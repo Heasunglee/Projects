@@ -137,9 +137,8 @@ while True:
                 block.x = 191
             if event.key == pygame.K_j:
                 block.x = 284
-            elif gameover == True:
-                if event.key == pygame.K_SPACE:
-                    gameover = False
+            if event.key == pygame.K_SPACE and gameover == True:
+                  gameover = False
 
     #Calling Function
     for target in Target.targetarray:
@@ -147,7 +146,7 @@ while True:
             gameover = True
             break
 
-    if gameover == False:
+    if gameover == False: 
         
         #Drawing/Screen Update
         screen.fill((102,0,51))
@@ -157,16 +156,16 @@ while True:
         for target in Target.targetarray:
             target.pause()
 
+        #Drawing block for a second
+        block.draw()
+        block.x = 400 
+        
         #Gaps of falling targets
         if framecount % 9 == 0:
             randomTarget = random.randrange(0,len(Target.targetarray) -1)
             while Target.targetarray[randomTarget].falling == True:
                 randomTarget = random.randrange(0,len(Target.targetarray) -1)
             Target.targetarray[randomTarget].falling = True
-
-        #Drawing block for a second
-        block.draw()
-        block.x = 400 
 
         #Calling Line Function
         for line in linearray:
