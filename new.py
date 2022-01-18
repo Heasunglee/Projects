@@ -161,8 +161,8 @@ while True:
 
         #Drawing block for a second
         block.draw()
+        block.y = 720
         target.hit = True 
-        block.x = 400
         
         #Gaps of falling targets
         if framecount % 10 == 0:
