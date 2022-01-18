@@ -140,8 +140,9 @@ while True:
                 block.x = 191
             if event.key == pygame.K_j:
                 block.x = 284
-            if event.key == pygame.K_SPACE and gameover == True:
-                  gameover = False
+            if event.key == pygame.K_SPACE:
+                print("space")
+                gameover = False
 
     #Calling Function
     for target in Target.targetarray:
@@ -161,7 +162,7 @@ while True:
 
         #Drawing block for a second
         block.draw()
-        block.y = 720
+        block.x = 400
         target.hit = True 
         
         #Gaps of falling targets
