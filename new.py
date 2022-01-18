@@ -94,15 +94,16 @@ class Target():
     def collision(self):
         global score
         if block.x == self.x and self.y + self.height >= block.y:
+            self.y = screenH * -1
             score +=1
-
+            
     def resetposition(self):
         if self.y >= screenH:
-            self.y = screenH * -1
             self.hit = False
             self.falling = False
             print("false")
-        elif self.collision():
+        else:
+            self.collision()
             self.hit = True
             print("true")
 
@@ -160,10 +161,11 @@ while True:
 
         #Drawing block for a second
         block.draw()
-        block.x = 400 
+        target.hit = True 
+        block.x = 400
         
         #Gaps of falling targets
-        if framecount % 9 == 0:
+        if framecount % 10 == 0:
             randomTarget = random.randrange(0,len(Target.targetarray) -1)
             while Target.targetarray[randomTarget].falling == True:
                 randomTarget = random.randrange(0,len(Target.targetarray) -1)
