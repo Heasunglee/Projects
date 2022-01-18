@@ -71,7 +71,7 @@ class Target():
 
     targetarray = []
     def gentarget():
-        for x in range(6):
+        for x in range(10):
             Target.targetarray.append(Target(0,-85,85,40,screen,False))
             Target.targetarray.append(Target(98,-85,85,40,screen,False))
             Target.targetarray.append(Target(191,-85,85,40,screen,False))
@@ -139,14 +139,7 @@ while True:
             if event.key == pygame.K_j:
                 block.x = 284
             if event.key == pygame.K_SPACE:
-                print("space")
                 gameover = False
-
-    #Calling Function
-    for target in Target.targetarray:
-        if not target.hit:
-            gameover = True
-            break
 
     if gameover == False: 
         
@@ -177,6 +170,13 @@ while True:
         label = font.render(str(score), 1, (255,255,255))
         screen.blit(label, (169,100))
 
+        #Calling Function
+        for target in Target.targetarray:
+            if not target.hit:
+                gameover = True
+                break
+
+
     else:
         #Drawing Gameover Screen
         screen.fill((0,0,0))
@@ -186,6 +186,15 @@ while True:
         screen.blit(label, (35,50))
         screen.blit(label1, (30,500))
         screen.blit(label2, (30,400))
+
+        def reset():
+            global score
+            score = 0
+            block.x = 400
+            for target in Target.targetarray:
+                target.targetarray.clear()
+
+        reset()
 
 
     pygame.display.update()
