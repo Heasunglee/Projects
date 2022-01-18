@@ -191,7 +191,7 @@ while True:
             score = 0
             block.x = 400
             for target in Target.targetarray:
-                target.y = -85
+                target.falling = False
         reset()
 
 
