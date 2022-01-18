@@ -80,7 +80,6 @@ class Target():
     def draw(self):
         pygame.draw.rect(self.screen,(0,0,51),[self.x,self.y,self.width,self.height])
 
-
     def update(self):
         self.y += self.speed_y
 
@@ -192,8 +191,7 @@ while True:
             score = 0
             block.x = 400
             for target in Target.targetarray:
-                target.targetarray.clear()
-
+                target.y = -85
         reset()
 
 
