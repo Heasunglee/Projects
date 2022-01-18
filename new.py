@@ -141,7 +141,6 @@ while True:
             if event.key == pygame.K_SPACE:
                 print("space")
                 gameover = False
-                break
 
     #Calling Function
     for target in Target.targetarray:
