@@ -101,11 +101,9 @@ class Target():
         if self.y >= screenH:
             self.hit = False
             self.falling = False
-            print("false")
         else:
             self.collision()
             self.hit = True
-            print("true")
 
 Target.gentarget()
 
@@ -185,8 +183,10 @@ while True:
         screen.fill((0,0,0))
         label = font.render("Game Over", 1, (255,255,255))
         label1 = font1.render("Press Space To Restart", 1, (255,255,255))
+        label2 = font1.render("Score:", 1,(255,255,255))
         screen.blit(label, (35,50))
         screen.blit(label1, (30,500))
+        screen.blit(label2, (30,400))
 
     pygame.display.update()
     FramePerSec.tick(FPS)
