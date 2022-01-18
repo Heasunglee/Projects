@@ -187,5 +187,6 @@ while True:
         screen.blit(label1, (30,500))
         screen.blit(label2, (30,400))
 
+
     pygame.display.update()
     FramePerSec.tick(FPS)
