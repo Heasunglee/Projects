@@ -71,7 +71,7 @@ class Target():
 
     targetarray = []
     def gentarget():
-        for x in range(20):
+        for x in range(30):
             Target.targetarray.append(Target(0,-85,85,40,screen,False))
             Target.targetarray.append(Target(98,-85,85,40,screen,False))
             Target.targetarray.append(Target(191,-85,85,40,screen,False))
