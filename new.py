@@ -71,7 +71,7 @@ class Target():
 
     targetarray = []
     def gentarget():
-        for x in range(10):
+        for x in range(20):
             Target.targetarray.append(Target(0,-85,85,40,screen,False))
             Target.targetarray.append(Target(98,-85,85,40,screen,False))
             Target.targetarray.append(Target(191,-85,85,40,screen,False))
@@ -139,6 +139,7 @@ while True:
                 block.x = 284
             if event.key == pygame.K_SPACE:
                 gameover = False
+                score = 0
 
     if gameover == False: 
         
@@ -175,54 +176,19 @@ while True:
                 gameover = True
                 break
 
-
     else:
         #Drawing Gameover Screen
-        screen.fill((0,0,0))
+        screen.fill((100,0,0))
         label = font.render("Game Over", 1, (255,255,255))
         label1 = font1.render("Press Space To Restart", 1, (255,255,255))
-        label2 = font1.render("Score:", 1,(255,255,255))
+        label2 = font1.render(str(score), 1,(255,255,255))
+        label3 = font1.render("Your Score:", 1,(255,255,255))
         screen.blit(label, (35,50))
-        screen.blit(label1, (30,500))
-        screen.blit(label2, (30,400))
-
-        def reset():
-            global score
-            score = 0
-            block.x = 400
-            for target in Target.targetarray:
-<<<<<<< HEAD
-                target.y = -85
-        reset()
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                target.falling = False
-        reset()
-
         screen.blit(label1, (25,500))
         screen.blit(label2, (260,400))
         screen.blit(label3, (90,400))
         for target in Target.targetarray:
             target.y-=50
-=======
-                target.y = -85
-        reset()
-
->>>>>>> parent of 14fd172 (Update new.py)
-=======
-                target.y = -85
-        reset()
-
->>>>>>> parent of 14fd172 (Update new.py)
-=======
-                target.y = -85
-        reset()
-
->>>>>>> parent of 14fd172 (Update new.py)
->>>>>>> parent of b38dbf9 (Update new.py)
 
     pygame.display.update()
     FramePerSec.tick(FPS)
