@@ -193,6 +193,7 @@ while True:
             for target in Target.targetarray:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 target.falling = False
         reset()
 
@@ -201,6 +202,11 @@ while True:
         screen.blit(label3, (90,400))
         for target in Target.targetarray:
             target.y-=50
+=======
+                target.y = -85
+        reset()
+
+>>>>>>> parent of 14fd172 (Update new.py)
 =======
                 target.y = -85
         reset()
