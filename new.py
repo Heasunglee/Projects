@@ -191,9 +191,38 @@ while True:
             score = 0
             block.x = 400
             for target in Target.targetarray:
+<<<<<<< HEAD
                 target.y = -85
         reset()
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                target.falling = False
+        reset()
+
+        screen.blit(label1, (25,500))
+        screen.blit(label2, (260,400))
+        screen.blit(label3, (90,400))
+        for target in Target.targetarray:
+            target.y-=50
+=======
+                target.y = -85
+        reset()
+
+>>>>>>> parent of 14fd172 (Update new.py)
+=======
+                target.y = -85
+        reset()
+
+>>>>>>> parent of 14fd172 (Update new.py)
+=======
+                target.y = -85
+        reset()
+
+>>>>>>> parent of 14fd172 (Update new.py)
+>>>>>>> parent of b38dbf9 (Update new.py)
 
     pygame.display.update()
     FramePerSec.tick(FPS)
