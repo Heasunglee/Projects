@@ -170,7 +170,7 @@ while True:
         label = font.render(str(score), 1, (255,255,255))
         screen.blit(label, (169,100))
 
-        #Calling Function
+        #If target misses gameover is true
         for target in Target.targetarray:
             if not target.hit:
                 gameover = True
