@@ -47,7 +47,7 @@ class Line():
 
 linearray = []
 def genline():
-    for x in range(5):
+    for x in range(40):
         linearray.append(Line((372,0),(372,700),4,screen))
         linearray.append(Line((279,0),(279,700),4,screen))
         linearray.append(Line((186,0),(186,700),4,screen))
@@ -65,17 +65,17 @@ class Target():
         self.width = width
         self.height = height
         self.screen = screen
-        self.speed_y = 10
+        self.speed_y = 6
         self.falling = falling
         self.hit = True
 
     targetarray = []
     def gentarget():
-        for x in range(20):
-            Target.targetarray.append(Target(0,-85,85,40,screen,False))
-            Target.targetarray.append(Target(98,-85,85,40,screen,False))
-            Target.targetarray.append(Target(191,-85,85,40,screen,False))
-            Target.targetarray.append(Target(284,-85,85,40,screen,False))
+        for x in range(100):
+            Target.targetarray.append(Target(0,-100,85,40,screen,False))
+            Target.targetarray.append(Target(98,-100,85,40,screen,False))
+            Target.targetarray.append(Target(191,-100,85,40,screen,False))
+            Target.targetarray.append(Target(284,-100,85,40,screen,False))
 
     def draw(self):
         pygame.draw.rect(self.screen,(0,0,51),[self.x,self.y,self.width,self.height])
@@ -137,9 +137,11 @@ while True:
                 block.x = 191
             if event.key == pygame.K_j:
                 block.x = 284
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE and gameover == True:
                 gameover = False
                 score = 0
+                for target in Target.targetarray:
+                    target.y-=1000
 
     if gameover == False: 
         
@@ -156,7 +158,7 @@ while True:
         block.x = 400
         
         #Gaps of falling targets
-        if framecount % 10 == 0:
+        if framecount % 15 == 0:
             randomTarget = random.randrange(0,len(Target.targetarray) -1)
             while Target.targetarray[randomTarget].falling == True:
                 randomTarget = random.randrange(0,len(Target.targetarray) -1)
@@ -187,8 +189,6 @@ while True:
         screen.blit(label1, (25,500))
         screen.blit(label2, (260,400))
         screen.blit(label3, (90,400))
-        for target in Target.targetarray:
-            target.y-=50
 
     pygame.display.update()
     FramePerSec.tick(FPS)
