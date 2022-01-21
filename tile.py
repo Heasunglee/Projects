@@ -141,7 +141,7 @@ while True:
                 gameover = False
                 score = 0
                 for target in Target.targetarray:
-                    target.y-=1000
+                    target.y-=800
 
     if gameover == False: 
         
